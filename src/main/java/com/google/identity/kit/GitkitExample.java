@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.google.gitkit.samples;
+package com.google.identity.kit;
 
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.servlet.ServletHandler;
 import org.mortbay.jetty.servlet.SessionHandler;
 
-import com.google.gitkit.samples.servlets.LoginServlet;
-import com.google.gitkit.samples.servlets.WidgetServlet;
+import com.google.identity.kit.servlets.LoginServlet;
+import com.google.identity.kit.servlets.WidgetServlet;
 
 public class GitkitExample {
 
@@ -37,4 +37,5 @@ public class GitkitExample {
 		server.start();
 		server.join();
 	}
+	
 }

@@ -1,4 +1,4 @@
-package com.google.gitkit.samples.servlets;
+package com.google.identity.kit.servlets;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,21 +31,26 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		try {
+			// get server config and validate request token for google identity kit user
 			GitkitUser gitkitUser = null;
-			GitkitClient gitkitClient = GitkitClient.createFromJson("gitkit-server-config.json");
-
+			GitkitClient gitkitClient = GitkitClient.createFromJson("src/main/resources/gitkit-server-config.json");
 			gitkitUser = gitkitClient.validateTokenInRequest(request);
+			
+			// get user info to display if login success
 			String userInfo = null;
 			if (gitkitUser != null) {
+				// login success
 				userInfo = "Welcome back!<br><br> Email: " + gitkitUser.getEmail() + "<br> Id: "
 						+ gitkitUser.getLocalId() + "<br> Provider: " + gitkitUser.getCurrentProvider();
 			}
 
-			File indexFile = new File("templates/index.html");
+			// set view and set login welcome message depending on login status
+			File indexFile = new File("src/main/webapp/templates/index.html");
 			@SuppressWarnings("resource")
 			Scanner scanner = new Scanner(indexFile, "UTF-8");
 			response.getWriter().print(scanner.useDelimiter("\\A").next()
 					.replaceAll("WELCOME_MESSAGE", userInfo != null ? userInfo : "You are not logged in").toString());
+			
 			response.setStatus(HttpServletResponse.SC_OK);
 		} catch (FileNotFoundException | GitkitClientException | JSONException e) {
 			e.printStackTrace();
@@ -53,11 +58,11 @@ public class LoginServlet extends HttpServlet {
 			response.getWriter().print(e.toString());
 		}
 	}
-	
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-      doGet(request, response);
-    }
-    
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
 }
