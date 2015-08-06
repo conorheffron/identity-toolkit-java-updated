@@ -1,0 +1,7 @@
+{
+  "clientId" : "779214270922-drjlmmcng7sjgc14fd00hfn2oaq2cv2h.apps.googleusercontent.com",
+  "serviceAccountEmail" : "779214270922-evjolpsf1ohkdncmj6eddkj089s5pc3n@developer.gserviceaccount.com",
+  "serviceAccountPrivateKeyFile" : "/GoogleIdentityApi-fa393d49bf95.p12",
+  "widgetUrl" : "http://localhost:4567/gitkit",
+  "cookieName" : "gtoken"
+}
