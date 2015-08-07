@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// This check prevents the "/" handler from handling all requests by
 		// default
-		if (!"/login".equals(request.getServletPath()) && !"/".equals(request.getServletPath())) {
+		if (!"/".equals(request.getServletPath())) {
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return;
 		}
