@@ -26,14 +26,21 @@ import com.google.identity.kit.servlets.WidgetServlet;
 public class GitkitExample {
 
 	public static void main(String[] args) throws Exception {
+		// set up JETTY server instance on LOCALHOST port 4567
 		Server server = new Server(4567);
+		
+		// create Servlet and Session handlers
 		ServletHandler servletHandler = new ServletHandler();
 		SessionHandler sessionHandler = new SessionHandler();
 		sessionHandler.setHandler(servletHandler);
 		server.setHandler(sessionHandler);
+		
+		// set Servlet request mappings
 		servletHandler.addServletWithMapping(LoginServlet.class, "/login");
 		servletHandler.addServletWithMapping(WidgetServlet.class, "/gitkit");
 		servletHandler.addServletWithMapping(LoginServlet.class, "/");
+	
+		// start up
 		server.start();
 		server.join();
 	}
