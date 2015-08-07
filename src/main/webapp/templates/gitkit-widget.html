@@ -21,6 +21,13 @@
 	config, 'JAVASCRIPT_ESCAPED_POST_BODY');
 </script>
 
+<script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("gitkit-widget.html"); 
+    });
+    </script> 
+
 </head>
 <body>
 
@@ -48,16 +55,7 @@
 
 	<!-- widget div which includes sign in button -->
 	<div id="gitkitWidgetDiv">
-		<!-- Include the sign in page widget with the matching 'gitkitWidgetDiv' id -->
-		<script type="text/javascript"
-			src="//www.gstatic.com/authtoolkit/js/gitkit.js"></script>
-		<script type=text/javascript>
-			window.google.identitytoolkit.signInButton('#navbar', // accepts any CSS selector
-			{
-				widgetUrl : "http://localhost:4567/gitkit",
-				signOutUrl : "http://localhost:4567/",
-			});
-		</script>
+		<div id="includedContent"></div>
 	</div>
 
 </body>
