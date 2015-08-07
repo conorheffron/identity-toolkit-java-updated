@@ -9,3 +9,5 @@ mvn compile
 mvn exec:exec
 -----------
 to start the local web server at localhost:4567.
+
+Google and Facebook supported.
