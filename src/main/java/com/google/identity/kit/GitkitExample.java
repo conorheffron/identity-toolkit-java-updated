@@ -36,7 +36,6 @@ public class GitkitExample {
 		server.setHandler(sessionHandler);
 		
 		// set Servlet request mappings
-		servletHandler.addServletWithMapping(LoginServlet.class, "/login");
 		servletHandler.addServletWithMapping(WidgetServlet.class, "/gitkit");
 		servletHandler.addServletWithMapping(LoginServlet.class, "/");
 	
